@@ -1,0 +1,19 @@
+meta {
+  name: delete client
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{host}}{{contextPath}}/clients/delete/1
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUyOTkxNDA1LCJleHAiOjE3NTMwNzc4MDV9.Sn1YSXziNAHzpGsNDnUHgebkZmSsx7aPUOwmQ98aYic
+}
