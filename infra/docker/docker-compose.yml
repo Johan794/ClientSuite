@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+  app:
+    image: johan794/client-suite-app:v1.0.1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - redis
+    environment:
+     # SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/clientSuite
+      SPRING_PROFILES_ACTIVE: dev
+      DB_USER: user
+      DB_PASS: password
+    networks:
+      - spring-network
+
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: clientSuite
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - spring-network
+
+  redis:
+    image: redis:7.2
+    container_name: redis-cache
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - spring-network
+
+volumes:
+  mysql_data:
+  redis_data:
+
+networks:
+  spring-network:
+    driver: bridge

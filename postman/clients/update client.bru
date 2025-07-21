@@ -1,0 +1,29 @@
+meta {
+  name: update client
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{host}}{{contextPath}}/clients/update/1
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUyOTkxNDA1LCJleHAiOjE3NTMwNzc4MDV9.Sn1YSXziNAHzpGsNDnUHgebkZmSsx7aPUOwmQ98aYic
+}
+
+body:json {
+  {
+    "name": "John",
+    "lastName": "Hernandez",
+    "age": 30,
+    "dateOfBirth": "07/11/1993"
+  }
+  
+}
