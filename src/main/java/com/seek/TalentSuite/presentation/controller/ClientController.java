@@ -3,11 +3,13 @@ package com.seek.TalentSuite.presentation.controller;
 import com.seek.TalentSuite.application.dto.request.ClientDtoRequest;
 import com.seek.TalentSuite.application.dto.response.ClientDtoResponse;
 import com.seek.TalentSuite.application.dto.response.ClientsMetrics;
+import com.seek.TalentSuite.application.dto.response.PageResponse;
 import com.seek.TalentSuite.application.service.ClientService;
 import com.seek.TalentSuite.presentation.api.ClientsApi;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,7 +34,8 @@ public class ClientController implements ClientsApi {
     }
 
     @Override
-    public Page<ClientDtoResponse> getClientsData(Pageable pageable) {
+    public PageResponse<ClientDtoResponse> getClientsData(int page, int size, String sort) {
+        Pageable pageable = PageRequest.of(page, size, sort != null ? Sort.by(sort.split(",")) : Sort.unsorted());
         return clientService.getClientsData(pageable);
     }
 

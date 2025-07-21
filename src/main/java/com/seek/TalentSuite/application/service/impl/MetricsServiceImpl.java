@@ -16,6 +16,7 @@ public class MetricsServiceImpl implements MetricsService {
 
     @Override
     public ClientsMetrics calculateMetrics(List<Client> currentClients) {
+
         long total = currentClients.size();
         List<Integer> ages = currentClients.stream().map(Client::getAge).filter(Objects::nonNull).sorted().toList();
 

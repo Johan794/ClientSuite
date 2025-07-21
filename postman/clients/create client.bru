@@ -1,0 +1,29 @@
+meta {
+  name: create client
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{host}}{{contextPath}}/clients/create
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUzMDY2NTE0LCJleHAiOjE3NTMxNTI5MTR9.H3a5xfmAFn8yoKyUcFJTtCfhsvy8tofDkeXw0q40j3M
+}
+
+body:json {
+  {
+    "name": "Samuel",
+    "lastName": "Sandiego",
+    "age": 66,
+    "dateOfBirth": "07/02/1990"
+  }
+  
+}

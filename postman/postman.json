@@ -1,0 +1,396 @@
+{
+  "name": "postman",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "health check",
+      "seq": 2,
+      "request": {
+        "url": "{{host}}{{contextPath}}/actuator/health",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "auth": {
+          "mode": "none"
+        }
+      }
+    },
+    {
+      "type": "folder",
+      "name": "clients",
+      "items": [
+        {
+          "type": "http",
+          "name": "create client",
+          "seq": 1,
+          "request": {
+            "url": "{{host}}{{contextPath}}/clients/create",
+            "method": "POST",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"name\": \"Samuel\",\n  \"lastName\": \"Sandiego\",\n  \"age\": 66,\n  \"dateOfBirth\": \"07/02/1990\"\n}\n",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUzMDY2NTE0LCJleHAiOjE3NTMxNTI5MTR9.H3a5xfmAFn8yoKyUcFJTtCfhsvy8tofDkeXw0q40j3M"
+              }
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "delete client",
+          "seq": 5,
+          "request": {
+            "url": "{{host}}{{contextPath}}/clients/delete/1",
+            "method": "DELETE",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "params": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUyOTkxNDA1LCJleHAiOjE3NTMwNzc4MDV9.Sn1YSXziNAHzpGsNDnUHgebkZmSsx7aPUOwmQ98aYic"
+              }
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "get client data",
+          "seq": 4,
+          "request": {
+            "url": "{{host}}{{contextPath}}/clients?page=0&size=18",
+            "method": "GET",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "0",
+                "type": "query",
+                "enabled": true
+              },
+              {
+                "name": "size",
+                "value": "18",
+                "type": "query",
+                "enabled": true
+              }
+            ],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUzMTExMTM3LCJleHAiOjE3NTMxOTc1Mzd9.ROacBWeGCU6wako-rklJS_nurDoIIRjO0qvbYeFO4i4"
+              }
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "update client",
+          "seq": 2,
+          "request": {
+            "url": "{{host}}{{contextPath}}/clients/update/1",
+            "method": "PUT",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"name\": \"John\",\n  \"lastName\": \"Hernandez\",\n  \"age\": 30,\n  \"dateOfBirth\": \"07/11/1993\"\n}\n",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUyOTkxNDA1LCJleHAiOjE3NTMwNzc4MDV9.Sn1YSXziNAHzpGsNDnUHgebkZmSsx7aPUOwmQ98aYic"
+              }
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "get metrics",
+          "seq": 3,
+          "request": {
+            "url": "{{host}}{{contextPath}}/clients/metrics",
+            "method": "GET",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "params": [],
+            "body": {
+              "mode": "none",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "bearer",
+              "bearer": {
+                "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUzMTExMTM3LCJleHAiOjE3NTMxOTc1Mzd9.ROacBWeGCU6wako-rklJS_nurDoIIRjO0qvbYeFO4i4"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "folder",
+      "name": "auth",
+      "items": [
+        {
+          "type": "http",
+          "name": "login failed",
+          "seq": 2,
+          "request": {
+            "url": "{{host}}{{contextPath}}/auth/login",
+            "method": "POST",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"P\"\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "login",
+          "seq": 1,
+          "request": {
+            "url": "{{host}}{{contextPath}}/auth/login",
+            "method": "POST",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"P@ssw0rd123\"\n}\n",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "register",
+          "seq": 3,
+          "request": {
+            "url": "{{host}}{{contextPath}}/auth/signup",
+            "method": "POST",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"P@ssw0rd123\"\n}\n",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        },
+        {
+          "type": "http",
+          "name": "register failed",
+          "seq": 4,
+          "request": {
+            "url": "{{host}}{{contextPath}}/auth/singup",
+            "method": "POST",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json",
+                "enabled": true
+              }
+            ],
+            "params": [],
+            "body": {
+              "mode": "json",
+              "json": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"P@ssw0rd123\"\n}",
+              "formUrlEncoded": [],
+              "multipartForm": []
+            },
+            "script": {},
+            "vars": {},
+            "assertions": [],
+            "tests": "",
+            "auth": {
+              "mode": "none"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "activeEnvironmentUid": "TIglE5OKJiYRKxTIAK8sh",
+  "environments": [
+    {
+      "variables": [
+        {
+          "name": "host",
+          "value": "http://3.91.236.73:8080",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "contextPath",
+          "value": "/api/v1/clientSuite",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        }
+      ],
+      "name": "dev"
+    },
+    {
+      "variables": [
+        {
+          "name": "host",
+          "value": "http://localhost:8080",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "contextPath",
+          "value": "/api/v1/clientSuite",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        }
+      ],
+      "name": "local"
+    }
+  ],
+  "root": {
+    "request": {
+      "auth": {
+        "mode": "none"
+      }
+    },
+    "meta": {
+      "name": "postman"
+    }
+  },
+  "brunoConfig": {
+    "version": "1",
+    "name": "postman",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ]
+  }
+}

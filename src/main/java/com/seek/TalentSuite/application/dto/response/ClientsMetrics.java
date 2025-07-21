@@ -1,9 +1,16 @@
 package com.seek.TalentSuite.application.dto.response;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
+@Data
 @Schema(description = "Aggregated metrics for all clients")
 public class ClientsMetrics {
     @Schema(description = "Total number of clients", example = "100")

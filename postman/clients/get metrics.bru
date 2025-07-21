@@ -1,0 +1,19 @@
+meta {
+  name: get metrics
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{host}}{{contextPath}}/clients/metrics
+  body: none
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiaWF0IjoxNzUzMTExMTM3LCJleHAiOjE3NTMxOTc1Mzd9.ROacBWeGCU6wako-rklJS_nurDoIIRjO0qvbYeFO4i4
+}
