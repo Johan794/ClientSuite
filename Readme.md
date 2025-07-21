@@ -64,7 +64,7 @@ http://3.91.236.73:8080/api/v1/clientSuite/swagger-ui
 Monitor the service status via Actuator:
 
 ```
-http://3.91.236.73:8080/api/v1/clientSuite/actuator/healt
+http://3.91.236.73:8080/api/v1/clientSuite/actuator/health
 ````
 
 ---
