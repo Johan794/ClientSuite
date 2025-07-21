@@ -55,7 +55,7 @@ This service follows a layered architecture (to be refactored to Hexagonal in v2
 Access the documentation of all endpoints:
 
 ```
-http://3.91.236.73:8080/api/v1/clientSuite/swagger-ui
+http://3.91.236.73:8080/api/v1/clientSuite/swagger-ui/index.html#/
 ```
 
 ---
